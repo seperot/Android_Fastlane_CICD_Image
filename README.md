@@ -57,9 +57,9 @@ debug_build:
     - fastlane yourDebug
 ```
 
-The version updater takes your google play store listing and checks it against your gradle version. If your gradle version number is higher than the app store it will stick with it, if it's equal or lower that the store version then it will +1 to the end of the version.
+The version updater takes your Google Play store listing and checks it against your Gradle version. If your Gradle version number is higher than the app store it will stick with it, if it’s equal or lower that the store version then it will take that, +1 to the end, then change the Gradle version for that one.
 
-Change this line and it should work correctly
+All you need to do is take the version_updater.sh file from here and put it in the root folder of your app and edit this line to have your bundle ID
 
  ```
 curl -O playstorepage https://play.google.com/store/apps/details\?id\=<YourBundleID>
