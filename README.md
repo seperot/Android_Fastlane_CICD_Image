@@ -1,5 +1,5 @@
 # Android_Fastlane_CICD_Image
-This Docker image contains the Android SDK and most common packages necessary for building Android apps in a CI tool like GitLab CI (Android SDK, git, fastlane). Make sure your CI environment's caching works as expected, this greatly improves the build time, especially if you use multiple build jobs.
+The Docker image contains the Android SDK and most common packages necessary for building Android apps in a CI tool like GitLab CI (Android SDK, git, fastlane). Make sure your CI environment's caching works as expected, this greatly improves the build time, especially if you use multiple build jobs.
 
 This has been updated for Android 12 using Open JDK 11
 
@@ -55,4 +55,12 @@ debug_build:
   script:
     - bash ./version_updater.sh
     - fastlane yourDebug
+```
+
+The version updater takes your google play store listing and checks it against your gradle version. If your gradle version number is higher than the app store it will stick with it, if it's equal or lower that the store version then it will +1 to the end of the version.
+
+Change this line and it should work correctly
+
+ ```
+curl -O playstorepage https://play.google.com/store/apps/details\?id\=<YourBundleID>
 ```
